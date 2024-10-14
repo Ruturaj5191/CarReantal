@@ -1,0 +1,82 @@
+{% include "admin/home.html" %}
+
+<form method="post" action="/save_bloginfo/" enctype="multipart/form-data">
+    {% csrf_token %}
+   
+    <div class="container w-100 p-5 bg-white mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="text-align:center;">Blog information</h1>
+            </div>
+
+            <div class="col-md-5">
+               Blog Image:
+            <input type="file" name="blimg"   class="form-control">
+            </div>
+            <div class="col-md-5">
+                Blog Date
+                <input type="date" name="bldate"   class="form-control">
+            </div>
+
+            <div class="col-md-5">
+                Blog Heading
+                <input type="text" name="blhead"   class="form-control">
+            </div>
+
+            <div class="col-md-5">
+                Blog text
+                <input type="text" name="bltext"   class="form-control">
+            </div>
+            
+
+
+             <div class="col-md-2">
+                <button class="btn btn-primary my-3">save</button>
+            </div>
+        </div>
+    </div>
+ 
+
+</form>
+
+
+<body class="table-responsive">
+    <table class="table table-primary table-bordered table-hover table-striped table-sm mt-5">
+        <tr>
+            <th colspan="8" class="text-center"><h1>Car Data</h1></th>
+           </tr> 
+    <tr>
+    <th>No</th>
+    <th>Delete</th>
+    <th>Update</th>
+    <th>Blog img</th>
+    <th>Blog date</th>
+    <th>Blog heading</th>
+    <th>Blog text</th>
+
+
+    
+    
+    
+    </tr>
+    {% for i in blo %}
+    <tr>
+    <td>{{forloop.counter}}</td>
+    <td><a href="/delete_bloginfo?id={{i.id}}"><button class="btn btn-primary">delete</button></a></td>
+    <td><a href="/edit_blog?id={{i.id}}"><button class="btn btn-primary">edit</button></a></td>
+    <td><img src="/{{i.blimg}}" width="100px"></td>
+    <td>{{i.bldate}}</td>
+    <td>{{i.blhead}}</td>
+    <td>{{i.bltext}}</td>
+   
+    
+  
+    </tr>
+    {% endfor %}
+    </table>
+    </body>
+    </html>
+
+
+
+

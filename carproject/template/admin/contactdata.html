@@ -1,0 +1,50 @@
+{% include 'admin/home.html'%}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+			<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
+	<!-- js -->
+	<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+</head>
+<body class="table-responsive">
+<table class="table table-primary table-bordered table-hover table-striped table-sm mt-5">
+   <tr>
+    <th colspan="8" class="text-center"><h1>Contact Data</h1></th>
+   </tr> 
+<tr>
+<th>No</th>
+<th>Delete</th>
+<th>Name</th>
+<th>email</th>
+<th>Subject</th>
+<th>message</th>
+<th>text</th>
+
+
+
+</tr>
+{% for i in cont %}
+<tr>
+<td>{{forloop.counter}}</td>
+<td><a href="/delete_contact?id={{i.id}}"><button class="btn btn-primary">delete</button></a></td>
+<td>{{i.cname}}</td>
+<td>{{i.cemail}}</td>
+<td>{{i.csubject}}</td>
+<td>{{i.cmessage}}</td>
+<td>{{i.ctext}}</td>
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>

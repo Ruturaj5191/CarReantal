@@ -1,0 +1,50 @@
+{% include 'admin/home.html'%}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+			<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
+	<!-- js -->
+	<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+</head>
+<body class="table-responsive">
+<table class="table table-primary table-bordered table-hover table-striped table-sm mt-5">
+    <tr>
+        <th colspan="8" class="text-center"><h1>Pickup Data</h1></th>
+       </tr> 
+<tr>
+<th>No</th>
+<th>Delete</th>
+<th>Pickup location</th>
+<th>Pickoff location</th>
+<th>pick up date</th>
+<th>pick off date</th>
+<th>pick up time</th>
+
+
+
+</tr>
+{% for i in pick %}
+<tr>
+<td>{{forloop.counter}}</td>
+<td><a href="/delete_pickup?id={{i.id}}"><button class="btn btn-primary">delete</button></a></td>
+<td>{{i.pickup}}</td>
+<td>{{i.dropoff}}</td>
+<td>{{i.pickupdate}}</td>
+<td>{{i.dropoffdate}}</td>
+<td>{{i.pickuptime}}</td>
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>

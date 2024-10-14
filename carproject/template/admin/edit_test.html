@@ -1,0 +1,43 @@
+{% include "admin/home.html" %}
+
+<form method="post" action="/update_test/" enctype="multipart/form-data">
+    {% csrf_token %}
+   
+    <div class="container w-100 p-5 bg-white mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="text-align:center;"> Update Testimonial information</h1>
+            </div>
+
+            <div class="col-md-5">
+                Testimonial id:
+             <input type="id" name="id" value="{{test.id}}"  class="form-control">
+             </div>
+
+            <div class="col-md-5">
+               Testimonial img:
+            <input type="file" name="timg" value="{{test.timg}}"  class="form-control">
+            </div>
+            <div class="col-md-5">
+                Testimonial info:
+                <input type="text" name="tinfo" value="{{test.tinfo}}"   class="form-control">
+            </div>
+            <div class="col-md-5">
+                Testimonial Name:
+             <input type="text" name="tname" value="{{test.tname}}"  class="form-control">
+             </div>
+             <div class="col-md-5">
+                 Testimonial position:
+                 <input type="text" name="tpos" value="{{test.tpos}}"  class="form-control">
+             </div>
+            
+
+
+             <div class="col-md-2">
+                <button class="btn btn-primary my-3">save</button>
+            </div>
+        </div>
+    </div>
+ 
+
+</form>

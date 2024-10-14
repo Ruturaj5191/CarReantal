@@ -1,0 +1,33 @@
+{% include "admin/home.html" %}
+{% for i in abou %}
+<form method="post" action="/save_about/" >
+    {% csrf_token %}
+   
+    <div class="container w-100 p-5 bg-white mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="text-align:center;">About information</h1>
+            </div>
+
+            <div class="col-md-5">
+               About heading:
+            <input type="text" name="abheading" value="{{i.abheading}}"  class="form-control">
+            </div>
+            <div class="col-md-5">
+                About text
+                <input type="text" name="abtext" value="{{i.abtext}}"  class="form-control">
+            </div>
+            
+
+
+             <div class="col-md-2">
+                <button class="btn btn-primary my-3">save</button>
+            </div>
+        </div>
+    </div>
+ 
+
+</form>
+{% endfor %}
+
+

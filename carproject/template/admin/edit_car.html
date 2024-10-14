@@ -1,0 +1,37 @@
+{% include "admin/home.html" %}
+<form method="post" action="/update_car/" enctype="multipart/form-data" >
+    {% csrf_token %}
+   
+    <div class="container w-100 p-5 bg-white mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="text-align:center;">Update Car information</h1>
+            </div>
+
+            <div class="col-md-5">
+                Car id:
+            <input type="id" name="id" value="{{cari.id}}"  class="form-control">
+            </div>
+
+            <div class="col-md-5">
+                Car image:
+            <input type="file" name="cimg" value="{{cari.cimg}}"  class="form-control">
+            </div>
+            <div class="col-md-5">
+                Car Name:
+            <input type="text" name="cname" value="{{cari.cname}}"  class="form-control">
+            </div>
+
+            <div class="col-md-5">
+                Car price per day:
+            <input type="text" name="cprice"  value="{{cari.cprice}}" class="form-control">
+            </div>
+
+             <div class="col-md-2">
+                <button class="btn btn-primary my-3">Edit</button>
+            </div>
+        </div>
+    </div>
+ 
+
+</form>

@@ -1,0 +1,42 @@
+{% include "admin/home.html" %}
+{% for i in home %}
+<form method="post" action="/save_homeimg/" enctype="multipart/form-data" >
+    {% csrf_token %}
+   
+    <div class="container w-100 p-5 bg-white mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="text-align:center;">Home page Img information</h1>
+            </div>
+
+            <div class="col-md-5">
+                Home page img:
+            <input type="file" name="himg" value="{{i.himg}}" class="form-control">
+            </div>
+            <div class="col-md-5">
+                Home page heading:
+            <input type="text" name="hheading" value="{{i.hheading}}" class="form-control">
+            </div>
+
+            <div class="col-md-5">
+                home Page pagr:
+            <input type="text" name="hparag" value="{{i.hparag}}"  class="form-control">
+            </div>
+
+            <div class="col-md-5">
+                All page img :
+            <input type="file" name="aimg" value="{{i.aimg}}"  class="form-control">
+            </div>
+        
+
+             <div class="col-md-2">
+                <button class="btn btn-primary my-3">save</button>
+            </div>
+        </div>
+    </div>
+ 
+
+</form>
+{% endfor %}
+
+

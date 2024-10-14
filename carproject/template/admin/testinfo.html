@@ -1,0 +1,78 @@
+{% include "admin/home.html" %}
+
+<form method="post" action="/save_testinfo/" enctype="multipart/form-data">
+    {% csrf_token %}
+   
+    <div class="container w-100 p-5 bg-white mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="text-align:center;">Testimonial information</h1>
+            </div>
+
+            <div class="col-md-5">
+               Testimonial img:
+            <input type="file" name="timg"   class="form-control">
+            </div>
+            <div class="col-md-5">
+                Testimonial info:
+                <input type="text" name="tinfo"   class="form-control">
+            </div>
+            <div class="col-md-5">
+                Testimonial Name:
+             <input type="text" name="tname"   class="form-control">
+             </div>
+             <div class="col-md-5">
+                 Testimonial position:
+                 <input type="text" name="tpos"   class="form-control">
+             </div>
+            
+
+
+             <div class="col-md-2">
+                <button class="btn btn-primary my-3">save</button>
+            </div>
+        </div>
+    </div>
+ 
+
+</form>
+
+
+<body class="table-responsive">
+    <table class="table table-primary table-bordered table-hover table-striped table-sm mt-5">
+        <tr>
+            <th colspan="8" class="text-center"><h1>Car Data</h1></th>
+           </tr> 
+    <tr>
+    <th>No</th>
+    <th>Delete</th>
+    <th>Edit</th>
+    <th>Image</th>
+    <th>Info</th>
+    <th>Name</th>
+    <th>position</th>
+
+    
+    
+    
+    </tr>
+    {% for i in test %}
+    <tr>
+    <td>{{forloop.counter}}</td>
+    <td><a href="/delete_testinfo?id={{i.id}}"><button class="btn btn-danger">delete</button></a></td>
+    <td><a href="/edit_test?id={{i.id}}"><button class="btn btn-primary">Edit</button></a></td>
+    <td><img src="/{{i.timg}}" width="100px"></td>
+    <td>{{i.tinfo}}</td>
+    <td>{{i.tname}}</td>
+    <td>{{i.tpos}}</td>
+   
+  
+    </tr>
+    {% endfor %}
+    </table>
+    </body>
+    </html>
+
+
+
+

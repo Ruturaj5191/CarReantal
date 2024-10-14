@@ -1,0 +1,45 @@
+{% include "admin/home.html" %}
+
+<form method="post" action="/update_blog/" enctype="multipart/form-data">
+    {% csrf_token %}
+   
+    <div class="container w-100 p-5 bg-white mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="text-align:center;">Edit Blog information</h1>
+            </div>
+
+            <div class="col-md-5">
+                Blog id:
+             <input type="text" name="id" value="{{blo.id}}" readonly  class="form-control">
+             </div>
+            <div class="col-md-5">
+               Blog Image:
+            <input type="file" name="blimg" value="{{blo.blimg}}"  class="form-control">
+            </div>
+            <div class="col-md-5">
+                Blog Date
+                <input type="date" name="bldate" value="{{blo.bldate}}"  class="form-control">
+            </div>
+
+            <div class="col-md-5">
+                Blog Heading
+                <input type="text" name="blhead" value="{{blo.blhead}}"  class="form-control">
+            </div>
+
+            <div class="col-md-5">
+                Blog text
+                <input type="text" name="bltext" value="{{blo.bltext}}"   class="form-control">
+            </div>
+            
+
+
+             <div class="col-md-2">
+                <button class="btn btn-primary my-3">Update & Save</button>
+            </div>
+        </div>
+    </div>
+ 
+
+</form>
+
